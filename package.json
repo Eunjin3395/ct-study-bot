@@ -1,0 +1,17 @@
+{
+  "name": "ct-study-bot",
+  "version": "1.0.0",
+  "description": "코딩테스트 스터디 출석체크 봇",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "dayjs": "^1.11.13",
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.5.0"
+  }
+}
