@@ -7,12 +7,11 @@ const AWS = require("aws-sdk");
 const GUILD_ID = process.env.GUILD_ID;
 
 const USER_MAP = {
-  "816901315849879562": "은진",
-};
-
-// id: 이름
-// 816901315849879562: 은진
-//
+  eunjin3395: "은진",
+  rimi_lim: "효림",
+  kslvy: "경은",
+  j11gen: "성윤",
+}; // username: 이름
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -33,41 +32,37 @@ const client = new Client({
 client.on("voiceStateUpdate", async (oldState, newState) => {
   const oldChannel = oldState.channelId;
   const newChannel = newState.channelId;
-  const userId = newState.id;
   const username = newState.member?.user?.username;
   const now = dayjs().tz("Asia/Seoul").format(); // KST 시간
 
   try {
+    // 퇴장 처리
     if (oldChannel && oldChannel !== newChannel) {
       await dynamo
         .delete({
           TableName: TABLE_NAME,
           Key: {
-            channelId: oldChannel,
-            userId: userId,
+            username: username,
           },
         })
         .promise();
 
-      console.log(`[퇴장] ${username} (${userId}) from ${oldChannel} at ${now}`);
+      console.log(`[퇴장] ${username} from ${oldChannel} at ${now}`);
     }
 
+    // 입장 처리
     if (newChannel && newChannel !== oldChannel) {
       await dynamo
         .put({
           TableName: TABLE_NAME,
           Item: {
-            channelId: newChannel,
-            userId: userId,
             username: username,
             joinedAt: now,
           },
         })
-        .promise()
-        .then(() => console.log(`✅ Put 성공 at ${now}`))
-        .catch((err) => console.error("❌ Put 실패:", err));
+        .promise();
 
-      console.log(`[입장] ${username} (${userId}) to ${newChannel} at ${now}`);
+      console.log(`[입장] ${username} to ${newChannel} at ${now}`);
     }
   } catch (err) {
     console.error("DynamoDB 처리 오류:", err);
