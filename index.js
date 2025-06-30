@@ -20,20 +20,13 @@ const getKSTNow = () => dayjs().tz("Asia/Seoul");
 const formatKST = (d = getKSTNow()) => d.format("YYYY-MM-DD HH:mm:ss");
 const formatDate = () => getKSTNow().format("YYYY-MM-DD");
 
-// username: 이름 맵
-const USER_MAP = {
-  eunjin3395: "은진",
-  rimi_lim: "효림",
-  kslvy: "경은",
-  j11gen: "성윤",
-};
-
 // Attendance 테이블 joinedAt 기록
 const updateJoinedAt = async (username) => {
   const today = formatDate();
   const now = getKSTNow();
 
   if (now.isBefore(now.startOf("day").add(6, "hour"))) return;
+  if (now.isAfter(now.startOf("day").add(10, "hour"))) return;
 
   const formattedNow = formatKST(now);
 
