@@ -19,7 +19,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_KEY }}
           source: "."
-          target: "~/discord-bot"
+          target: "./home/ubuntu/discord-bot"
 
       - name: Run deploy script on EC2
         uses: appleboy/ssh-action@v0.1.10
@@ -28,7 +28,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_KEY }}
           script: |
-            cd ~/discord-bot
+            cd ./home/ubuntu/discord-bot
             npm install
             pm2 delete discord-bot || true
             pm2 start ecosystem.config.js
