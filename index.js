@@ -20,7 +20,6 @@ const docClient = new AWS.DynamoDB.DocumentClient({
 
 const EJ_UID = process.env.EJ_UID;
 const SY_UID = process.env.SY_UID;
-const KE_UID = process.env.KE_UID;
 const SH_UID = process.env.SH_UID;
 const HS_UID = process.env.HS_UID;
 
@@ -28,17 +27,15 @@ const HS_UID = process.env.HS_UID;
 const USER_MAP = {
   [EJ_UID]: "eunjin3395",
   [SY_UID]: "j11gen",
-  [KE_UID]: "kslvy",
   [SH_UID]: "parksanghoon4817",
-  [HS_UID]: "3veryday_22624",
+  [HS_UID]: "haru_95532",
 };
 
 const USERNAME_TO_ID = {
   김은진: process.env.EJ_UID,
   황성윤: process.env.SY_UID,
-  kslvy: process.env.KE_UID,
   박상훈: process.env.SH_UID,
-  "3veryday": process.env.HS_UID,
+  지현서: process.env.HS_UID,
 };
 
 const DAYOFF_CHANNEL_ID = process.env.DAYOFF_CHANNEL_ID;
