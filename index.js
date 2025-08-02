@@ -27,14 +27,12 @@ const HS_UID = process.env.HS_UID;
 const USER_MAP = {
   [EJ_UID]: "eunjin3395",
   [SY_UID]: "j11gen",
-  [SH_UID]: "parksanghoon4817",
   [HS_UID]: "haru_95532",
 };
 
 const USERNAME_TO_ID = {
   김은진: process.env.EJ_UID,
   황성윤: process.env.SY_UID,
-  박상훈: process.env.SH_UID,
   지현서: process.env.HS_UID,
 };
 
