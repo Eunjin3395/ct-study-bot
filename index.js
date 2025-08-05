@@ -129,7 +129,7 @@ const client = new Client({
     GatewayIntentBits.GuildVoiceStates,
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildMessages, // 메시지 감지를 위한 인텐트
-    GatewayIntentBits.MessageContent, // 메시지 내용 접근을 위한 인텐트!
+    GatewayIntentBits.MessageContent, // 메시지 내용 접근을 위한 인텐트!!
   ],
   partials: [Partials.Channel],
 });
