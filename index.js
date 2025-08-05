@@ -21,21 +21,24 @@ const docClient = new AWS.DynamoDB.DocumentClient({
 const EJ_UID = process.env.EJ_UID;
 const SY_UID = process.env.SY_UID;
 const HS_UID = process.env.HS_UID;
-const DU_UID = process.env.DU_UID;
+const HJ_UID = process.env.HJ_UID;
+const JW_UID = process.env.JW_UID;
 
 // UID -> Discord ID
 const USER_MAP = {
   [EJ_UID]: "eunjin3395",
   [SY_UID]: "j11gen",
   [HS_UID]: "haru_95532",
-  [DU_UID]: "deuue.",
+  [HJ_UID]: "deuue.",
+  [JW_UID]: "jujaeweon_41932",
 };
 
 const USERNAME_TO_ID = {
   김은진: process.env.EJ_UID,
   황성윤: process.env.SY_UID,
   지현서: process.env.HS_UID,
-  deuue: process.env.DU_UID,
+  이혜준: process.env.HJ_UID,
+  주재원: process.env.JW_UID,
 };
 
 const DAYOFF_CHANNEL_ID = process.env.DAYOFF_CHANNEL_ID;
