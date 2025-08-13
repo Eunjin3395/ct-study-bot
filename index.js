@@ -28,6 +28,7 @@ const USERNAME_TO__DISCORD_ID = {
 };
 
 const DAYOFF_CHANNEL_ID = process.env.DAYOFF_CHANNEL_ID;
+const DAYOFF_CHANNEL_ID_2 = "1389951842452246528";
 const FORMAT_ERR_MESSAGE = "⚠️ 커맨드 오류: `/휴무 이름 시작일(mmdd) 종료일(mmdd)` 형식으로 입력해주세요.";
 
 const getKSTNow = () => dayjs().tz("Asia/Seoul");
@@ -157,8 +158,7 @@ client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
   // 특정 채널 ID만 필터링
-  const allowedChannelId = DAYOFF_CHANNEL_ID;
-  if (message.channel.id !== allowedChannelId) return;
+  if (message.channel.id !== DAYOFF_CHANNEL_ID && message.channel.id != DAYOFF_CHANNEL_ID_2) return;
 
   // 커맨드 형식 오류
   if (!message.content.startsWith("/휴무")) {
