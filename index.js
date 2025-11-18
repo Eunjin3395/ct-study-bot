@@ -23,13 +23,12 @@ const USERNAME_TO__DISCORD_ID = {
   김은진: "eunjin3395",
   황성윤: "j11gen",
   지현서: "haru_95532",
-  주재원: "jujaeweon_41932",
   이총명: "chong2422",
 };
 
 const DAYOFF_CHANNEL_ID = process.env.DAYOFF_CHANNEL_ID;
 const DAYOFF_CHANNEL_ID_2 = "1389951842452246528";
-const FORMAT_ERR_MESSAGE = "⚠️ 커맨드 오류: `/휴무 이름 시작일(mmdd) 종료일(mmdd)` 형식으로 입력해주세요.";
+const FORMAT_ERR_MESSAGE = "⚠️ 커맨드 오류: `/휴무 이름 시작일(mmdd) 종료일(mmdd) (휴무 사유)` 형식으로 입력해주세요.";
 
 const getKSTNow = () => dayjs().tz("Asia/Seoul");
 const formatKST = (d = getKSTNow()) => d.format("YYYY-MM-DD HH:mm:ss");
@@ -172,7 +171,7 @@ client.on("messageCreate", async (message) => {
   const contentArr = content.trim().split(/\s+/); // 공백 기준 분할
 
   // 커맨드 형식 오류
-  if (contentArr.length < 4) {
+  if (contentArr.length < 5) {
     await message.reply(FORMAT_ERR_MESSAGE);
     return;
   }
