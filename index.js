@@ -20,10 +20,14 @@ const docClient = new AWS.DynamoDB.DocumentClient({
 
 // 이름 -> discord id
 const USERNAME_TO__DISCORD_ID = {
-  김은진: "eunjin3395",
+  // 김은진: "eunjin3395",
   황성윤: "j11gen",
   지현서: "haru_95532",
   이총명: "chong2422",
+  김영만: "gimyeongman0658",
+  최문형: "invite_me_41",
+  김호준: "gimhojun0668",
+  이제희: "gimyeongman0658",
 };
 
 const DAYOFF_CHANNEL_ID = process.env.DAYOFF_CHANNEL_ID;
@@ -39,8 +43,8 @@ const updateJoinedAt = async (username) => {
   const today = formatDate();
   const now = getKSTNow();
 
-  if (now.isBefore(now.startOf("day").add(6, "hour"))) return;
-  if (now.isAfter(now.startOf("day").add(10, "hour"))) return;
+  if (now.isBefore(now.startOf("day").add(5, "hour"))) return;
+  if (now.isAfter(now.startOf("day").add(24, "hour"))) return;
 
   const formattedNow = formatKST(now);
 
