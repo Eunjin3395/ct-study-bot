@@ -27,7 +27,7 @@ const USERNAME_TO__DISCORD_ID = {
   김영만: "gimyeongman0658",
   최문형: "invite_me_41",
   김호준: "gimhojun0668",
-  이제희: "gimyeongman0658",
+  이제희: "incredible_dragon_84712",
 };
 
 const DAYOFF_CHANNEL_ID = process.env.DAYOFF_CHANNEL_ID;
